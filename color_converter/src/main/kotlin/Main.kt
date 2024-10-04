@@ -175,7 +175,7 @@ class ColorConverterApp : JFrame("Color Converter") {
     private fun addSliderListener(slider: JSlider, field: JTextField, changed: Changed) {
         slider.addChangeListener {
             if (!isUpdating) {
-                field.text = slider.value.toString()git
+                field.text = slider.value.toString()
             }
         }
     }
