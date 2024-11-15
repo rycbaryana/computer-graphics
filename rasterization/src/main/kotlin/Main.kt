@@ -2,7 +2,7 @@ import java.awt.*
 import java.awt.event.ItemEvent
 import javax.swing.*
 import kotlin.math.*
-import kotlin.system.measureTimeMillis
+import kotlin.system.measureNanoTime
 
 class RasterizationApp : JFrame("Rasterization") {
     private val canvas: JPanel = object : JPanel() {
@@ -180,10 +180,10 @@ class RasterizationApp : JFrame("Rasterization") {
         g.color = Color.BLACK
         val id = algoButtons.indexOfFirst { it.isSelected }
         output.text = "${algoButtons[id].text}:\n"
-        val time = measureTimeMillis {
+        val time = measureNanoTime {
             algos[id](g)
         }
-        output.append("Time: $time ms\n")
+        output.append("Time: ${(time / 1000.0).toInt()} \u00b5s\n")
 
     }
 
